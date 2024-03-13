@@ -1,7 +1,9 @@
 
-import ExpenseItem from './Components/ExpenseItem';
+import ExpenseItem from './Components/Expenses/ExpenseItem.js';
 
-function App() {
+
+//using arrow functions
+const App = () => {
   const expences = [
     { title: "Car Insurance",amount: 100, date: new Date(2024,3,13)},
     { title: "Car Insurance",amount: 100, date: new Date(2024,3,13)},
