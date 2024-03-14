@@ -1,22 +1,17 @@
 
 import ExpenseItem from './Components/Expenses/ExpenseItem.js';
+import NewExpense from './Components/NewExpense/NewExpense.js';
 
 
 //using arrow functions
 const App = () => {
   const expences = [
     { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-    { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-    { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-    { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-    { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-    { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-    { title: "Car Insurance",amount: 100, date: new Date(2024,3,13)},
     { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)}
   ]
   return (
     <div>
-        <h2>Lets gets started..</h2>
+        <NewExpense />
         {
           expences.map((expence,index)=>(
             <ExpenseItem
