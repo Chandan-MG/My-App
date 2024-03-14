@@ -1,6 +1,6 @@
 
-import ExpenseItem from './Components/Expenses/ExpenseItem.js';
 import NewExpense from './Components/NewExpense/NewExpense.js';
+import Expenses from './Components/Expenses/Expenses.js';
 
 
 //using arrow functions
@@ -12,16 +12,7 @@ const App = () => {
   return (
     <div>
         <NewExpense />
-        {
-          expences.map((expence,index)=>(
-            <ExpenseItem
-              key={index}
-              title={expence.title}
-              amount={expence.amount}
-              date={expence.date}
-            />
-          ))
-        }
+        <Expenses items={expences} />
     </div>
   );
 }
