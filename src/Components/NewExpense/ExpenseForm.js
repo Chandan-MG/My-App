@@ -3,36 +3,52 @@ import './ExpenseForm.css';
 
 function ExpenseForm(){
 
-    // const [enteredTitle, setTitle] = useState();
-    // const [enteredAmount, setAmount] = useState();
-    // const [enteredDate, setDate] = useState();
+    const [enteredTitle, setTitle] = useState();
+    const [enteredAmount, setAmount] = useState();
+    const [enteredDate, setDate] = useState();
 
-    const [userInput, setUserInput ] = useState({
-        enteredTitle : '',
-        enteredAmount : '',
-        enteredDate : ''
-    });
+    //combined approach
+    // const [userInput, setUserInput ] = useState({
+    //     enteredTitle : '',
+    //     enteredAmount : '',
+    //     enteredDate : ''
+    // });
 
     const titleChangedHandler = (event) =>{
-        setUserInput({
-            ...userInput,
-            enteredTitle : event.target.value,
-        })
+        setTitle(event.target.value);
+        //or
+        // setUserInput({
+        //     ...userInput,
+        //     enteredTitle : event.target.value,
+        // })
+        //or
+        // setUserInput( (prevState) => {
+        //     return { 
+        //         ...prevState, 
+        //         enteredTitle : event.target.value 
+        //     };
+        // })
     }
     const amountChangedHandler = (event) =>{
-        setUserInput({
-            ...userInput,
-            enteredAmount : event.target.value,
-        })
+        setAmount(event.target.value);
     }
     const dateChangedHandler = (event) =>{
-        setUserInput({
-            ...userInput,
-            enteredDate : event.target.value,
-        })
+        setDate(event.target.value);
     }
 
-    return <form>
+    const submitFormHandler = (event) =>{
+        event.preventDefault();//used to prevent the default behaviour
+
+        const expenseData = {
+            title : enteredTitle,
+            amount : enteredAmount,
+            date : new Date(enteredDate) //here enteredAmount string converted to date format
+        };
+
+        console.log(expenseData);
+    }
+
+    return <form onSubmit={submitFormHandler}>
         <div className="new-expense_controls">
             <div className="new-expense_control">
                 <label>Title</label>
