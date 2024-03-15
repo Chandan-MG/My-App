@@ -21,8 +21,8 @@ function ExpenseItem(props){
             <ExpenseDate date={props.date} />
             {/* <div><h3>Expense items</h3></div> */}
             <div className="expense-item_description">
-                <h2>{title}</h2>
-                <div className="expense-item_price">${amount}</div>
+                <h2>{props.title}</h2>
+                <div className="expense-item_price">${props.amount}</div>
             </div>
             {/* <div>{props.date.toISOString()}</div> */}
             {/* <button onClick={ () => {console.log("Title changed...")}}>Change title</button> */}
