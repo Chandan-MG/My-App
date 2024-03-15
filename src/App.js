@@ -4,8 +4,8 @@ import Expenses from './Components/Expenses/Expenses.js';
 import React, {useState} from 'react';
 
 const DUMMY_EXPENSES = [
-  { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-  { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)}
+  { id:"e1", title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
+  { id:"e2", title: "Car Insurance",amount: 200, date: new Date(2024,3,13)}
 ];
 
 //using arrow functions
