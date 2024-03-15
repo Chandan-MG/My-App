@@ -1,17 +1,22 @@
 
 import NewExpense from './Components/NewExpense/NewExpense.js';
 import Expenses from './Components/Expenses/Expenses.js';
+import React, {useState} from 'react';
 
+const DUMMY_EXPENSES = [
+  { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
+  { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)}
+];
 
 //using arrow functions
 const App = () => {
-  const expences = [
-    { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)},
-    { title: "Car Insurance",amount: 200, date: new Date(2024,3,13)}
-  ];
+
+  const [expences, setExpense] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense) =>{
-    console.log(expense);
+    setExpense((prevExpenses) =>{
+      return [...prevExpenses, expense];
+    })
   }
   return (
     <div>
