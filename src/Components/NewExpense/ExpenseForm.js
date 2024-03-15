@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './ExpenseForm.css';
 
-function ExpenseForm(){
+function ExpenseForm(props){
 
     const [enteredTitle, setTitle] = useState();
     const [enteredAmount, setAmount] = useState();
@@ -45,22 +45,25 @@ function ExpenseForm(){
             date : new Date(enteredDate) //here enteredAmount string converted to date format
         };
 
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
+        setAmount('');
+        setTitle('');
+        setDate('');
     }
 
     return <form onSubmit={submitFormHandler}>
         <div className="new-expense_controls">
             <div className="new-expense_control">
                 <label>Title</label>
-                <input type="text" onChange={titleChangedHandler} />
+                <input type="text" value={enteredTitle} onChange={titleChangedHandler} />
             </div>
             <div className="new-expense_control">
                 <label>Amount</label>
-                <input type="number" min= "0.01" step= "0.01" onChange={amountChangedHandler}  />
+                <input type="number" value={enteredAmount} min= "0.01" step= "0.01" onChange={amountChangedHandler}  />
             </div>
             <div className="new-expense_control">
                 <label>Date</label>
-                <input type="date" min= "2024-02-24" max= "2024-12-31" onChange={dateChangedHandler}  />
+                <input type="date" value={enteredDate} min= "2024-02-24" max= "2024-12-31" onChange={dateChangedHandler}  />
             </div>
         </div>
         <div className="new-expense_actions">
